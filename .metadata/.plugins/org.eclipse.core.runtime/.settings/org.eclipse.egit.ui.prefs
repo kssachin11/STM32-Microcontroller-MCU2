@@ -1,6 +1,6 @@
 BranchProjectTracker__C\:\\Users\\Sachin\ K\ S\\GIT\\Microcontroller-Programming-MCU2\\.git_develop=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<projects>\r\n<project>\\UART2_Example</project>\r\n</projects>
 RepositorySearchDialogSearchPath=E\:\\sachin\\Matering CAN TIMERS\\Workspace\\My_workspace\\MasteringMCU2_WS\\Microcontroller-Programming-MCU2
-commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>UART2</message>\r\n<message>DATA Tx_ing</message>\r\n<message>hi</message>\r\n<message>&apos;TEST&apos;</message>\r\n<message>&quot;MCU2&quot;</message>\r\n</messages>
+commit_dialog_history_messages=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<messages>\r\n<message>Rx_ing - convert Lowwercase to uppercase</message>\r\n<message>SysTICk handler Implemented</message>\r\n<message>UART2</message>\r\n<message>DATA Tx_ing</message>\r\n<message>hi</message>\r\n<message>&apos;TEST&apos;</message>\r\n<message>&quot;MCU2&quot;</message>\r\n</messages>
 eclipse.preferences.version=1
 repositories_view_filters=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<FilterCache/>
 repository_push_settings_C\:\\Users\\Sachin\ K\ S\\GIT\\Microcontroller-Programming-MCU2\\.git=false;true
