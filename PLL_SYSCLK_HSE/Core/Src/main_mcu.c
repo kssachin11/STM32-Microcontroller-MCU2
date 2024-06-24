@@ -30,7 +30,7 @@ int main(void)
 	char msg[100];
 	HAL_Init();
 
-	SystemClock_Config(SYS_CLOCK_FREQ_120_MHZ);
+	SystemClock_Config(SYS_CLOCK_FREQ_180_MHZ);
 
 	UART2_Init();
 
@@ -140,6 +140,39 @@ void SystemClock_Config(uint8_t clock_freq)
 
 								break;
 				}
+
+				case SYS_CLOCK_FREQ_180_MHZ :
+				{
+					// ENABLE THE CLOCK FOR THE POER CONTROLLER
+
+								__HAL_RCC_PWR_CLK_ENABLE();
+
+								// set regulator voltage scale as 1
+								__HAL_PWR_VOLTAGESCALING_CONFIG(PWR_REGULATOR_VOLTAGE_SCALE1);
+
+								// turn on the overdrive mode of the voltage regulator
+								__HAL_PWR_OVERDRIVE_ENABLE();
+
+								osc_init.PLL.PLLM = 8;
+								osc_init.PLL.PLLN = 360;
+								osc_init.PLL.PLLP = 2;			//ref clock confif in board ui
+								osc_init.PLL.PLLR =2;
+								osc_init.PLL.PLLQ = 2;
+
+
+								clk_init.ClockType = RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | \
+																	RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2;
+								clk_init.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+								clk_init.AHBCLKDivider = RCC_SYSCLK_DIV1;
+								clk_init.APB1CLKDivider = RCC_HCLK_DIV4;
+								clk_init.APB2CLKDivider = RCC_HCLK_DIV2;
+
+								FLatency = FLASH_ACR_LATENCY_5WS;
+
+
+								break;
+				}
+
 		default:
 			return ;
 	}
