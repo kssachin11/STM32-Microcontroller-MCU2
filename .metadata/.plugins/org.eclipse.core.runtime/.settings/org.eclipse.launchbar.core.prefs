@@ -2,12 +2,14 @@ LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/arch
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/name=Local
 LaunchTargetManager/org.eclipse.launchbar.core.launchTargetType.local,Local/os=win32
 activeLaunchTarget=null\:---
-configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HSE_SYSCLK_8_MHZ
+configDescList=org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PLL_SYSCLK Debug,org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PLL_SYSCLK (1)
 eclipse.preferences.version=1
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:HSE_SYSCLK_8_MHZ/activeLaunchMode=debug
+org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:PLL_SYSCLK/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART2_Example\ Debug/activeLaunchMode=debug
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART2_Example\ Debug/activeLaunchTarget=null\:---
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART_Hello/activeLaunchMode=run
 org.eclipse.cdt.dsf.gdb.gdbRemotedescriptorType\:UART_Hello/activeLaunchTarget=null\:---
+org.eclipse.launchbar.core.descriptorType.default\:PLL_SYSCLK\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
 org.eclipse.launchbar.core.descriptorType.default\:UART2_Example\ Debug/activeLaunchMode=debug
 org.eclipse.launchbar.core.descriptorType.default\:UART2_Example\ Debug/activeLaunchTarget=org.eclipse.launchbar.core.launchTargetType.local\:Local
