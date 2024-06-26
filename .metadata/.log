@@ -4731,3 +4731,9 @@ org.eclipse.ecf.filetransfer.IncomingFileTransferException: HttpComponents conne
 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:78)
 !SUBENTRY 1 org.eclipse.ecf.identity 4 0 2024-06-26 12:45:04.025
 !MESSAGE HttpComponents connection error response code 406.
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-06-26 13:57:18.431
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
+
+!ENTRY com.st.stm32cube.ide.mcu.debug.swv 1 1 2024-06-26 13:58:59.070
+!MESSAGE SWV configuration; base: 36000000; minDiv: 18; maxDiv: 65535; maxSWO: 2000000; limit: 2000000 => SWO: 2000000; CPU: 16000000; div: 8
