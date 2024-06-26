@@ -6,7 +6,7 @@
  */
 
 #include "stm32f4xx_hal.h"
-
+#include "main_mcu.h"
 void HAL_MspInit(void)
 {
   // Here we will do low level processor specific inits.
@@ -25,4 +25,21 @@ void HAL_MspInit(void)
 
 
 }
+void HAL_TIM_Base_MspInit(TIM_HandleTypeDef*htimer)
+{
+	//1. Enable the clock for timer 6 peripherals'
 
+	__HAL_RCC_TIM6_IS_CLK_ENABLED();
+
+	//2. Enable IRQ o timer 6
+
+	HAL_NVIC_EnableIRQ(  TIM6_DAC_IRQn );
+
+	//3. Setup the priority
+
+	HAL_NVIC_SetPriority(  TIM6_DAC_IRQn , 15, 0);
+
+
+
+
+}
