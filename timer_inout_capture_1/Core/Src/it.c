@@ -6,7 +6,9 @@
  */
 
 #include "main_mcu.h"
-extern TIM_HandleTypeDef	htimer6;
+extern TIM_HandleTypeDef	htimer2;
+
+extern
 
 void SysTick_Handler(void)
 {
@@ -17,3 +19,7 @@ void SysTick_Handler(void)
 }
 
 
+void TIM2_IRQHandler(void)
+{
+	HAL_TIM_IRQHandler(&htimer2);
+}

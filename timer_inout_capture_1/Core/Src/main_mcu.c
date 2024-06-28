@@ -15,7 +15,7 @@
 void SystemClockConfig(uint8_t clock_freq );
 void GPIO_Init(void);
 void Error_Handler(void);
-void TIMER2_Init(void)
+void TIMER2_Init(void);
 
 
 TIM_HandleTypeDef	htimer2 ;   // handle variable of timer 6
@@ -164,7 +164,7 @@ void TIMER2_Init(void)
 	}
 
 
-
+}
 
 
 void Error_Handler(void)
