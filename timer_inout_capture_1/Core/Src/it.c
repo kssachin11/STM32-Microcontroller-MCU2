@@ -17,7 +17,3 @@ void SysTick_Handler(void)
 }
 
 
-void TIM6_DAC_IRQHandler(void)
-{
-	HAL_TIM_IRQHandler(&htimer6);
-}

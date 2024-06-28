@@ -11,12 +11,15 @@
 
 
 
-void 	TIMER6_Init(void);
+
 void SystemClockConfig(uint8_t clock_freq );
 void GPIO_Init(void);
 void Error_Handler(void);
+void TIMER2_Init(void)
 
-TIM_HandleTypeDef	htimer6 ;   // handle variable of timer 6
+
+TIM_HandleTypeDef	htimer2 ;   // handle variable of timer 6
+
 
 int main(void)
 {
@@ -24,11 +27,8 @@ int main(void)
 	HAL_Init();
 	SystemClockConfig(SYS_CLOCK_FREQ_50_MHZ);
 	GPIO_Init();
-	TIMER6_Init();
 
-	// lets start the timer in interrupt mode
-
-	HAL_TIM_Base_Start_IT(&htimer6);
+	TIMER2_Init();
 
 	while(1);
 
@@ -136,23 +136,36 @@ void GPIO_Init(void)
 
 }
 
-
-void 	TIMER6_Init(void)
+void TIMER2_Init(void)
 {
-	htimer6.Instance = TIM6;
-	htimer6.Init.Prescaler  = 9;
-	htimer6.Init.Period = 50-1 ;
-	if (HAL_TIM_Base_Init(&htimer6) != HAL_OK)
+	TIM_IC_InitTypeDef timer2IC_Config;
+
+	htimer2.Instance = TIM2;
+	htimer2.Init.CounterMode = TIM_COUNTERMODE_UP ;
+	htimer2.Init.Period = 0xFFFFFFFF; // 32 BIT COUNTER
+	htimer2.Init.Prescaler = 1;
+
+	if (HAL_TIM_IC_Init(&htimer2) != HAL_OK)
 	{
 		Error_Handler();
 	}
 
-}
 
-void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim)
-{
-	HAL_GPIO_TogglePin(GPIOA, GPIO_PIN_5);s
-}
+	timer2IC_Config.ICFilter=0;
+	timer2IC_Config.ICPolarity=TIM_ICPOLARITY_RISING;
+	timer2IC_Config.ICPrescaler =TIM_ICPSC_DIV1;
+	timer2IC_Config.ICSelection =TIM_ICSELECTION_DIRECTTI;
+
+
+	if (HAL_TIM_IC_ConfigChannel(&htimer2, &timer2IC_Config, TIM_CHANNEL_1) != HAL_OK)
+	{
+		Error_Handler();
+
+	}
+
+
+
+
 
 void Error_Handler(void)
 {
