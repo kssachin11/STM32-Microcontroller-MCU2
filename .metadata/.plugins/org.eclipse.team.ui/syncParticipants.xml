@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <syncparticipants>
-<participant displayName="Git (UART2_Example)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1716299873638">
+<participant displayName="Git (timer_In_out_capture_0)" id="org.eclipse.egit.ui.modelCompareParticipant" secondary_id="1719556674944">
 <data forceFetch="false" root="false">
-<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="UART2_Example" startupAction="none">
+<org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS org.eclipse.team.ui.MODEL_PARTICIPANT_DESCRIPTION="timer_In_out_capture_0" startupAction="none">
 <org.eclipse.team.ui.MODEL_PARTICIPANT_REFRESH_SCHEDULE org.eclipse.team.ui.CTX_REFRESHSCHEDULE_ENABLED="false" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_INTERVAL="3600" org.eclipse.team.ui.CTX_REFRESHSCHEDULE_RUNONCE="false"/>
 <org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS modelProviderId="org.eclipse.core.resources.modelProvider">
 <mappings>
-<resources resourcePath="/UART2_Example" resourceType="4"/>
+<resources resourcePath="/timer_In_out_capture_0" resourceType="4"/>
 </mappings>
 </org.eclipse.team.ui.MODEL_PARTICIPANT_MAPPINGS>
 </org.eclipse.team.ui.MODEL_PARTICIPANT_SETTINGS>
-<gitSynchronizeData container="C:/Users/Sachin K S/GIT/Microcontroller-Programming-MCU2/UART2_Example" dstRev="HEAD" inludeLocal="true" srcRev="HEAD"/>
+<gitSynchronizeData container="E:/sachin/Matering CAN TIMERS/Workspace/My_workspace/MasteringMCU2_WS/STM32-Microcontroller-MCU2/timer_In_out_capture_0" dstRev="refs/remotes/origin/main" inludeLocal="true" srcRev="HEAD"/>
 </data>
 </participant>
 </syncparticipants>
