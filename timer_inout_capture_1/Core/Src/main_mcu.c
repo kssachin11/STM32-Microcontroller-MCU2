@@ -16,7 +16,7 @@ void SystemClockConfig(uint8_t clock_freq );
 void GPIO_Init(void);
 void Error_Handler(void);
 void TIMER2_Init(void);
-
+void LSE_Configuration(void);
 
 TIM_HandleTypeDef	htimer2 ;   // handle variable of timer 6
 
@@ -29,6 +29,9 @@ int main(void)
 	GPIO_Init();
 
 	TIMER2_Init();
+
+	LSE_Configuration();
+
 
 	while(1);
 
@@ -43,8 +46,9 @@ void SystemClockConfig(uint8_t clock_freq )
 	RCC_OscInitTypeDef Osc_Init;
 	RCC_ClkInitTypeDef Clock_Init;
 
-	Osc_Init.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+	Osc_Init.OscillatorType = RCC_OSCILLATORTYPE_HSI | RCC_OSCILLATORTYPE_LSE;
 	Osc_Init.HSIState = RCC_HSI_ON;
+	Osc_Init.LSEState = RCC_LSE_ON;
 	Osc_Init.HSICalibrationValue = 16;
 	Osc_Init.PLL.PLLState = RCC_PLL_ON;
 	Osc_Init.PLL.PLLSource = RCC_PLLSOURCE_HSI;
@@ -166,6 +170,21 @@ void TIMER2_Init(void)
 
 }
 
+void LSE_Configuration(void)
+{
+
+#if 0
+	RCC_OscInitTypeDef Osc_Init;
+	Osc_Init.OscillatorType = RCC_OSCILLATORTYPE_LSE;
+	Osc_Init.LSEState = RCC_LSE_ON;
+
+	if (HAL_RCC_OscConfig(&Osc_Init) != HAL_OK)
+		{
+				Error_Handler();
+		}
+#endif
+	HAL_RCC_MCOConfig(RCC_MCO1, RCC_MCO1SOURCE_LSE, RCC_MCODIV_1);
+}
 
 void Error_Handler(void)
 {
