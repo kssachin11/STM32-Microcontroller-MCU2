@@ -5,7 +5,8 @@
  *      Author: Sachin K S
  */
 
-
+#include <stdio.h>
+#include <string.h.h>
 #include "stm32f4xx_hal.h"
 #include "main_mcu.h"
 
@@ -43,7 +44,7 @@ int main(void)
 	TIMER2_Init();
 
 	LSE_Configuration();
-
+	HAL_TIM_IC_Start_IT(&htimer2,TIM_CHANNEL_1);
 
 	while(1)
 
