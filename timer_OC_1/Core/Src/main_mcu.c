@@ -6,7 +6,7 @@
  */
 
 #include <stdio.h>
-#include <string.h.h>
+#include <string.h>
 #include "stm32f4xx_hal.h"
 #include "main_mcu.h"
 
