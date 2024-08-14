@@ -37,6 +37,7 @@ volatile uint32_t pulse2_value = 12500; //to produce 1000HZ
 volatile uint32_t pulse3_value = 6250;  //to produce 2000Hz
 volatile uint32_t pulse4_value = 3125;  //to produce 4000Hz
 
+volatile uint32_t ccr_content;
 
 UART_HandleTypeDef huart2;
 
@@ -50,32 +51,29 @@ int main(void)
 	TIMER2_Init();
 
 
-	while(1)
+	if( HAL_TIM_OC_Start_IT(&htimer2,TIM_CHANNEL_1) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
-	{
-		if (is_capture_done)
-		{
-			if (input_captures[1]>input_captures[0])
-			 {
-					capture_difference = input_captures[1] - input_captures[0];
-			 }else
-			 {
-				 capture_difference = (0XFFFFFFFF- input_captures[0]) + input_captures[1];
-			 }
-		}
+	  if( HAL_TIM_OC_Start_IT(&htimer2,TIM_CHANNEL_2) != HAL_OK)
+	  {
+		  Error_Handler();
+	  }
 
-		timer2_cnt_freq =(HAL_RCC_GetPCLK1Freq()*2) / htimer2.Init.Prescaler;
-		timer2_cnt_res = 1/timer2_cnt_freq;
-		user_signal_time_period = capture_difference*timer2_cnt_res;
-		user_signal_freq = 1/user_signal_time_period;
+	  if( HAL_TIM_OC_Start_IT(&htimer2,TIM_CHANNEL_3) != HAL_OK)
+	  {
+		  Error_Handler();
+	  }
 
-		sprintf(user_msg, "Frequency of signal applied = %f\r\n",user_signal_freq);   // @suppress("Float formatting support")
-		HAL_UART_Transmit(&huart2, user_msg, strlen(user_msg), HAL_MAX_DELAY);
+	  if( HAL_TIM_OC_Start_IT(&htimer2,TIM_CHANNEL_4) != HAL_OK)
+	  {
+		  Error_Handler();
+	  }
 
-		is_capture_done= FALSE;
-	}
+	  while(1);
 
-	return 0;
+	  return 0;
 
 }
 
@@ -191,7 +189,7 @@ void TIMER2_Init(void)
 
 	 if ( HAL_TIM_OC_Init(&htimer2) != HAL_OK)
 			 {
-				 Error_handler();
+		 	 	 Error_Handler();
 			 }
 
 	  tim2OC_init.OCMode = TIM_OCMODE_TOGGLE;
@@ -201,26 +199,26 @@ void TIMER2_Init(void)
 
  	if(HAL_TIM_OC_ConfigChannel(&htimer2,&tim2OC_init,TIM_CHANNEL_1) != HAL_OK)
 				  {
-					   Error_handler();
+ 					Error_Handler();
 				  }
 
  	tim2OC_init.Pulse  = pulse2_value;
 
  	if(HAL_TIM_OC_ConfigChannel(&htimer2,&tim2OC_init,TIM_CHANNEL_2) != HAL_OK)
 		  {
-			   Error_handler();
+			   Error_Handler();
 		  }
 
  	tim2OC_init.Pulse  = pulse3_value;
 	  if(HAL_TIM_OC_ConfigChannel(&htimer2,&tim2OC_init,TIM_CHANNEL_3) != HAL_OK)
 	  {
-		   Error_handler();
+		   Error_Handler();
 	  }
 
 	  tim2OC_init.Pulse  = pulse4_value;
 	  if(HAL_TIM_OC_ConfigChannel(&htimer2,&tim2OC_init,TIM_CHANNEL_4) != HAL_OK)
 	  {
-		   Error_handler();
+		   Error_Handler();
 	  }
 
 
@@ -280,7 +278,51 @@ void LSE_Configuration(void)
  		//There is a problem
  		Error_Handler();
  	}
- }
+
+
+ 	}
+
+ 	/**
+ 	  * @brief  Output Compare callback in non-blocking mode
+ 	  * @param  htim TIM OC handle
+ 	  * @retval None
+ 	  */
+ 	void HAL_TIM_OC_DelayElapsedCallback(TIM_HandleTypeDef *htim)
+ 	{
+ 	  /* TIM3_CH1 toggling with frequency = 500 Hz */
+ 	  if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_1)
+ 	  {
+ 	    ccr_content = HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_1);
+ 	    __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_1,ccr_content+pulse1_value);
+ 	  }
+
+ 	  /* TIM3_CH2 toggling with frequency = 1000 Hz */
+ 	  if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_2)
+ 	  {
+ 	    ccr_content = HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_2);
+ 	    __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_2,ccr_content+pulse2_value);
+ 	  }
+
+ 	  /* TIM3_CH3 toggling with frequency = 2000 Hz */
+ 	  if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_3)
+ 	  {
+ 	    ccr_content = HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_3);
+ 	    __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_3,ccr_content+pulse3_value);
+ 	  }
+
+ 	  /* TIM3_CH4 toggling with frequency = 4000 Hz */
+ 	  if(htim->Channel == HAL_TIM_ACTIVE_CHANNEL_4)
+ 	  {
+ 	    ccr_content = HAL_TIM_ReadCapturedValue(htim,TIM_CHANNEL_4);
+ 	    __HAL_TIM_SET_COMPARE(htim,TIM_CHANNEL_4,ccr_content+pulse4_value);
+ 	  }
+ 	}
+
+
+
+
+
+
 void Error_Handler(void)
 {
 	while(1);

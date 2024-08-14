@@ -1,48 +1,22 @@
-08:33:44 **** Incremental Build of configuration Debug for project timer_In_out_capture_0 ****
+00:20:25 **** Incremental Build of configuration Debug for project timer_OC_1 ****
 make -j4 all 
 arm-none-eabi-gcc "../Core/Src/main_mcu.c" -mcpu=cortex-m4 -std=gnu11 -g3 -DDEBUG -DUSE_HAL_DRIVER -DSTM32F446xx -c -I../Core/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc -I../Drivers/STM32F4xx_HAL_Driver/Inc/Legacy -I../Drivers/CMSIS/Device/ST/STM32F4xx/Include -I../Drivers/CMSIS/Include -O0 -ffunction-sections -fdata-sections -Wall -fstack-usage -fcyclomatic-complexity -MMD -MP -MF"Core/Src/main_mcu.d" -MT"Core/Src/main_mcu.o" --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -o "Core/Src/main_mcu.o"
-../Core/Src/main_mcu.c: In function 'main':
-../Core/Src/main_mcu.c:67:17: warning: implicit declaration of function 'sprintf' [-Wimplicit-function-declaration]
-   67 |                 sprintf(user_msg, "Frequency of signal applied = %f\r\n",user_signal_freq);   // @suppress("Float formatting support")
-      |                 ^~~~~~~
-../Core/Src/main_mcu.c:11:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-   10 | #include "main_mcu.h"
-  +++ |+#include <stdio.h>
-   11 | 
-../Core/Src/main_mcu.c:67:17: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-   67 |                 sprintf(user_msg, "Frequency of signal applied = %f\r\n",user_signal_freq);   // @suppress("Float formatting support")
-      |                 ^~~~~~~
-../Core/Src/main_mcu.c:67:17: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-../Core/Src/main_mcu.c:68:54: warning: implicit declaration of function 'strlen' [-Wimplicit-function-declaration]
-   68 |                 HAL_UART_Transmit(&huart2, user_msg, strlen(user_msg), HAL_MAX_DELAY);
-      |                                                      ^~~~~~
-../Core/Src/main_mcu.c:11:1: note: include '<string.h>' or provide a declaration of 'strlen'
-   10 | #include "main_mcu.h"
-  +++ |+#include <string.h>
-   11 | 
-../Core/Src/main_mcu.c:68:54: warning: incompatible implicit declaration of built-in function 'strlen' [-Wbuiltin-declaration-mismatch]
-   68 |                 HAL_UART_Transmit(&huart2, user_msg, strlen(user_msg), HAL_MAX_DELAY);
-      |                                                      ^~~~~~
-../Core/Src/main_mcu.c:68:54: note: include '<string.h>' or provide a declaration of 'strlen'
-../Core/Src/main_mcu.c:68:44: warning: pointer targets in passing argument 2 of 'HAL_UART_Transmit' differ in signedness [-Wpointer-sign]
-   68 |                 HAL_UART_Transmit(&huart2, user_msg, strlen(user_msg), HAL_MAX_DELAY);
-      |                                            ^~~~~~~~
-      |                                            |
-      |                                            char *
-In file included from ../Core/Inc/stm32f4xx_hal_conf.h:411,
-                 from ../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal.h:29,
-                 from ../Core/Src/main_mcu.c:9:
-../Drivers/STM32F4xx_HAL_Driver/Inc/stm32f4xx_hal_uart.h:745:79: note: expected 'const uint8_t *' {aka 'const unsigned char *'} but argument is of type 'char *'
-  745 | HAL_StatusTypeDef HAL_UART_Transmit(UART_HandleTypeDef *huart, const uint8_t *pData, uint16_t Size, uint32_t Timeout);
-      |                                                                ~~~~~~~~~~~~~~~^~~~~
-arm-none-eabi-gcc -o "timer_In_out_capture_0.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\sachin\Matering CAN TIMERS\Workspace\My_workspace\MasteringMCU2_WS\STM32-Microcontroller-MCU2\timer_In_out_capture_0\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="timer_In_out_capture_0.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
-Finished building target: timer_In_out_capture_0.elf
+arm-none-eabi-gcc -o "timer_OC_1.elf" @"objects.list"   -mcpu=cortex-m4 -T"E:\sachin\Matering CAN TIMERS\Workspace\My_workspace\MasteringMCU2_WS\STM32-Microcontroller-MCU2_1\timer_OC_1\STM32F446RETX_FLASH.ld" --specs=nosys.specs -Wl,-Map="timer_OC_1.map" -Wl,--gc-sections -static --specs=nano.specs -mfpu=fpv4-sp-d16 -mfloat-abi=hard -mthumb -Wl,--start-group -lc -lm -Wl,--end-group
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-closer.o): in function `_close_r':
+(.text._close_r+0xc): warning: _close is not implemented and will always fail
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-lseekr.o): in function `_lseek_r':
+(.text._lseek_r+0x10): warning: _lseek is not implemented and will always fail
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-readr.o): in function `_read_r':
+(.text._read_r+0x10): warning: _read is not implemented and will always fail
+C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/bin/ld.exe: C:/ST/STM32CubeIDE_1.15.1/STM32CubeIDE/plugins/com.st.stm32cube.ide.mcu.externaltools.gnu-tools-for-stm32.12.3.rel1.win32_1.0.100.202403111256/tools/bin/../lib/gcc/arm-none-eabi/12.3.1/../../../../arm-none-eabi/lib/thumb/v7e-m+fp/hard\libc_nano.a(libc_a-writer.o): in function `_write_r':
+(.text._write_r+0x10): warning: _write is not implemented and will always fail
+Finished building target: timer_OC_1.elf
  
-arm-none-eabi-size  timer_In_out_capture_0.elf 
-arm-none-eabi-objdump -h -S timer_In_out_capture_0.elf  > "timer_In_out_capture_0.list"
+arm-none-eabi-size  timer_OC_1.elf 
+arm-none-eabi-objdump -h -S timer_OC_1.elf  > "timer_OC_1.list"
    text	   data	    bss	    dec	    hex	filename
-  15392	     92	   2200	  17684	   4514	timer_In_out_capture_0.elf
+  12008	     32	   1728	  13768	   35c8	timer_OC_1.elf
 Finished building: default.size.stdout
  
-Finished building: timer_In_out_capture_0.list
+Finished building: timer_OC_1.list
  
