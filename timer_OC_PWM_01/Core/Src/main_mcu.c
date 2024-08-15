@@ -50,7 +50,20 @@ int main(void)
 	    Error_Handler();
 	  }
 
+	  if ( HAL_TIM_PWM_Start(&htimer2,TIM_CHANNEL_2) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
+	  if ( HAL_TIM_PWM_Start(&htimer2,TIM_CHANNEL_3) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+	  if ( HAL_TIM_PWM_Start(&htimer2,TIM_CHANNEL_4) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
 	  while(1);
 
@@ -186,6 +199,23 @@ void TIMER2_Init(void)
 	    Error_Handler();
 	  }
 
+	  tim2PWM_Config.Pulse =  (htimer2.Init.Period * 45 ) /100;
+	  if( HAL_TIM_PWM_ConfigChannel(&htimer2,&tim2PWM_Config,TIM_CHANNEL_2) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+	  tim2PWM_Config.Pulse =  (htimer2.Init.Period * 75 ) /100;
+	  if( HAL_TIM_PWM_ConfigChannel(&htimer2,&tim2PWM_Config,TIM_CHANNEL_3) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
+
+	  tim2PWM_Config.Pulse =  (htimer2.Init.Period * 95 ) /100;
+	  if( HAL_TIM_PWM_ConfigChannel(&htimer2,&tim2PWM_Config,TIM_CHANNEL_4) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
 
 }
