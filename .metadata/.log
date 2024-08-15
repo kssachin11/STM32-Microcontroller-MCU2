@@ -7355,3 +7355,6 @@ org.eclipse.ecf.filetransfer.IncomingFileTransferException: HttpComponents conne
 	at org.eclipse.equinox.internal.p2.updatechecker.UpdateChecker$UpdateCheckThread.run(UpdateChecker.java:78)
 !SUBENTRY 1 org.eclipse.ecf.identity 4 0 2024-08-14 23:35:27.840
 !MESSAGE HttpComponents connection error response code 406.
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-15 16:24:33.621
+!MESSAGE Indexed 'timer_OC_PWM_1' (19 sources, 81 headers) in 10.5 sec: 4,552 declarations; 22,019 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0075%)
