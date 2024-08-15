@@ -37,6 +37,7 @@ char user_msg [100];
 
 int main(void)
 {
+	uint16_t brightness = 0;
 
 	HAL_Init();
 	SystemClock_Config_HSE(SYS_CLOCK_FREQ_50_MHZ);
@@ -50,10 +51,25 @@ int main(void)
 	    Error_Handler();
 	  }
 
+	while(1)
+	{
 
+	  while(brightness < htimer2.Init.Period)
+	  {
+		  brightness+=10;
+		  __HAL_TIM_SET_COMPARE(&htimer2, TIM_CHANNEL_1,brightness );
+		  HAL_Delay(1);
 
-	  while(1);
+	  }
+	  while(brightness > 0)
+	  {
+		  brightness+=10;
+		  __HAL_TIM_SET_COMPARE(&htimer2, TIM_CHANNEL_1,brightness );
+		  HAL_Delay(1);
 
+	  }
+
+	}
 	  return 0;
 
 }
@@ -179,7 +195,7 @@ void TIMER2_Init(void)
 	  tim2PWM_Config.OCPolarity = TIM_OCPOLARITY_HIGH;
 
 
-	  tim2PWM_Config.Pulse =  (htimer2.Init.Period * 25 ) /100;
+	  tim2PWM_Config.Pulse =  0;
 
 	  if( HAL_TIM_PWM_ConfigChannel(&htimer2,&tim2PWM_Config,TIM_CHANNEL_1) != HAL_OK)
 	  {

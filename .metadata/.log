@@ -7358,3 +7358,6 @@ org.eclipse.ecf.filetransfer.IncomingFileTransferException: HttpComponents conne
 
 !ENTRY org.eclipse.cdt.core 1 0 2024-08-15 16:24:33.621
 !MESSAGE Indexed 'timer_OC_PWM_1' (19 sources, 81 headers) in 10.5 sec: 4,552 declarations; 22,019 references; 0 unresolved inclusions; 1 syntax errors; 2 unresolved names (0.0075%)
+
+!ENTRY org.eclipse.cdt.core 1 0 2024-08-15 17:34:21.972
+!MESSAGE Indexed 'timer_OC_PWM_LED' (20 sources, 61 headers) in 3.44 sec: 5,525 declarations; 42,568 references; 0 unresolved inclusions; 0 syntax errors; 0 unresolved names (0%)
